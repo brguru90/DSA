@@ -5,6 +5,7 @@ dir_path = os.path.dirname((os.path.dirname(os.path.realpath(__file__))))
 sys.path.append(dir_path)
 
 
+
 from my_package.console import _console as console
 
 class StackImpl:
@@ -51,6 +52,7 @@ class StackImpl:
             raise Exception("index out of boundary")
         val=self.arr[pos]
         self.arr=np.concatenate((self.arr[0:pos],self.arr[pos+1:]))
+        self.arr=np.concatenate((self.arr,np.zeros(shape=(1),dtype=np.int16)))
         self.top-=1
         return val
 
@@ -65,7 +67,7 @@ class StackImpl:
 
     def get_values(self) -> None:
         ''' get array ''' 
-        return self.arr[0:self.top]
+        return self.arr[0:self.top+1]
 
     def to_python_type(self,val):
         if isinstance(val,np.int16):
@@ -82,6 +84,9 @@ class StackImpl:
         }
         return json.dumps(data,indent=2,default=self.to_python_type)
 
+    def free(self):
+        self.top=-1
+        self.arr=np.empty(0,dtype=np.int16)
 
 
 
