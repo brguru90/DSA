@@ -56,8 +56,10 @@ class LinkedList:
             - cur_node initialized with the head/cur_node
             - loop until given position 
             - after reaching the position, create temp_node with given data
-            - next of temp_node assigned with the reference of next node of cur_node  (like appeniding node at current position - temp_node=[new_node]+[i+1:])
-            - finally next of node at current position will be assigned with reference of newly inserted temp_node (like updated_node=[0:i]+temp_node)
+            - next of temp_node assigned with the reference of next node
+              of cur_node  (like appeniding node at current position - temp_node=[new_node]+[i+1:])
+            - finally next of node at current position will be assigned with
+              reference of newly inserted temp_node (like updated_node=[0:i]+temp_node)
         '''
 
         if pos==-1:
@@ -137,7 +139,8 @@ class LinkedList:
             - if there is only single node, just assigning that node to None
             - else there is more than one node (means next of current node is not None)
             - then looping until reach the position
-            - on reaching the position, replacing the next reference of node at current position  with the next of next node
+            - on reaching the position, replacing the next reference of node
+             at current position  with the next of next node
         '''
 
         if self.head==None:
