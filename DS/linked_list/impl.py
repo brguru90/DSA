@@ -177,3 +177,7 @@ class LinkedList:
             console.info(cur_node.data)
             cur_node=cur_node.next
         console.info()
+
+
+if __name__ == "__main__":
+    help(LinkedList)
