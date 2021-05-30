@@ -16,6 +16,12 @@ for i in range(4):
 
 test.display()
 
+print(test.pop(2))
+
+
+test.display()
+
+
 for i in range(6):
     try:
         console.info("pop "+str(test.pop()))
@@ -29,3 +35,6 @@ for i in range(15):
         console.error(e)
 
 console.debug(test.get_values())
+
+
+console.info(test)

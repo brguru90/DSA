@@ -32,13 +32,25 @@ class StackImpl:
         self.top+=1
         self.arr[self.top]=val
 
-    def pop(self) -> int:
+    def pop(self,pos=None) -> int:
         ''' remove an item from top of stack '''
+
+        if pos:
+            return self.remove_at(pos)
+
+
         if self.top<0:
             raise Exception("stack empty")
-            return
         val=self.arr[self.top]
         self.arr[self.top]=0
+        self.top-=1
+        return val
+
+    def remove_at(self,pos) -> int:
+        if pos>self.top:
+            raise Exception("index out of boundary")
+        val=self.arr[pos]
+        self.arr=np.concatenate((self.arr[0:pos],self.arr[pos+1:]))
         self.top-=1
         return val
 
@@ -52,6 +64,7 @@ class StackImpl:
             console.info(self.arr[i])
 
     def get_values(self) -> None:
+        ''' get array ''' 
         return self.arr[0:self.top]
 
     def to_python_type(self,val):
