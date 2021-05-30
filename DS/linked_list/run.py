@@ -42,7 +42,7 @@ ll.display()
 ll.insert_at_end(2)
 ll.display()
 
-console.debug(ll.get_elements_as_list())
+console.debug(ll.as_list)
 
 console.debug(ll.remove_from_position(0))
 ll.display()

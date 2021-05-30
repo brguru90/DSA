@@ -182,7 +182,8 @@ class LinkedList:
             cur_node=cur_node.next
         console.info()
 
-    def get_elements_as_list(self) -> List[Any]:
+    @property
+    def as_list(self) -> List[Any]:
         if self.head==None:
             return []
         arr=[]
