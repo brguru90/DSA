@@ -1,0 +1,2 @@
+https://www.hackerearth.com/practice/data-structures/linked-list/singly-linked-list/tutorial/
+https://www.javatpoint.com/singly-linked-list
