@@ -133,36 +133,38 @@ class LinkedList:
         return val
 
     def remove_from_position(self,pos) -> Any:
-
         ''' remove from position:
             - if there is only single node, just assigning that node to None
             - else there is more than one node (means next of current node is not None)
             - then looping until reach the position
-            - on reaching the position, replacing the node at current position with 
-
+            - on reaching the position, replacing the next reference of node at current position  with the next of next node
         '''
-
 
         if self.head==None:
             raise LinkedListException("List is empty")
-
+        
+        val=self.head.data
         if self.head.next==None:
             self.head=None
-            return
+            return val
 
         if pos<=0:
+            val=self.head.data
             self.head=self.head.next
-            return
+            return val
 
         cur_node=self.head
         i=0
         while cur_node and cur_node.next and i<pos-1:
             cur_node=cur_node.next
             i+=1   
-        if cur_node.next:     
-            cur_node.next=cur_node.next.next
+        if cur_node.next: 
+            val=cur_node.next.data    
+            cur_node.next=cur_node.next.next   
+            return val         
         else:
             raise LinkedListException("position is not exists in list")
+        
 
 
 
@@ -175,42 +177,3 @@ class LinkedList:
             console.info(cur_node.data)
             cur_node=cur_node.next
         console.info()
-
-ll=LinkedList()
-
-
-ll.insert_at_end(1)
-ll.insert_at_end(2)
-ll.display()
-
-
-ll.insert_at_begining(-1)
-ll.insert_at_begining(-2)
-ll.display()
-
-ll.insert_after_pos(2,1.5)
-ll.display()
-
-ll.insert_after_pos(2,1.4)
-ll.display()
-
-ll.replace_at_pos(3,1.2)
-ll.replace_at_pos(4,1.4)
-ll.display()
-
-ll.remove_at_beginning()
-ll.remove_at_beginning()
-ll.display()
-
-print(ll.pop())
-ll.display()
-
-
-
-ll.insert_at_end(2)
-ll.display()
-
-ll.remove_from_position(2)
-ll.display()
-
-
