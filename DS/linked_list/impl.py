@@ -1,5 +1,6 @@
 import sys,os
 from typing import Any
+from typing import List
 
 dir_path = os.path.dirname((os.path.dirname(os.path.realpath(__file__))))
 sys.path.append(dir_path)
@@ -181,6 +182,15 @@ class LinkedList:
             cur_node=cur_node.next
         console.info()
 
+    def get_elements_as_list(self) -> List[Any]:
+        if self.head==None:
+            return []
+        arr=[]
+        cur_node=self.head
+        while cur_node:
+            arr.append(cur_node.data)
+            cur_node=cur_node.next
+        return arr
 
 if __name__ == "__main__":
     help(LinkedList)
