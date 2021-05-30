@@ -13,7 +13,7 @@ class _console:
     BLUE=get_style(34,47)
 
     @staticmethod
-    def log(msg):
+    def log(msg=""):
         print(msg)
 
     @staticmethod
@@ -23,25 +23,25 @@ class _console:
         return "{}{}{}".format(color,msg,_console.END)
 
     @staticmethod
-    def error(msg):
+    def error(msg=""):
         msg=str(msg)
         for line in msg.split("\n"):
             print(_console.style_msg(line,_console.RED),file=sys.stderr)
 
     @staticmethod
-    def info(msg):
+    def info(msg=""):
         msg=str(msg)
         for line in msg.split("\n"):
             print(_console.style_msg(line,_console.GREEN))
 
     @staticmethod
-    def warning(msg):
+    def warning(msg=""):
         msg=str(msg)
         for line in msg.split("\n"):
             print(_console.style_msg(line,_console.YELLOW))
 
     @staticmethod
-    def debug(msg):
+    def debug(msg=""):
         msg=str(msg)
         for line in msg.split("\n"):
             print(_console.style_msg(line,_console.BLUE))
